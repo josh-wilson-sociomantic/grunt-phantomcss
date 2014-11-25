@@ -3,7 +3,7 @@
 > Automate CSS regression testing with PhantomCSS
 
 ## Getting Started
-This plugin requires Grunt `~0.4.1`
+This plugin requires Grunt `~0.4.5`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -68,7 +68,7 @@ The directory to store source, diff, and failure screenshots after tests.
 Type: `Array`  
 Default: `[1280, 800]`
 
-The viewport size to test the site in `[width, height]` format. Useful when testing responsive layouts. 
+The viewport size to test the site in `[width, height]` format. Useful when testing responsive layouts.
 
 #### options.logLevel
 Type: `String`  
@@ -129,7 +129,7 @@ grunt.initConfig({
 #### Sample test file
 
 Test files should do the following:
-* You no longer need ```casper.start``` - Use ```thenOpen``` to start CasperJS with the URL you want to test - NOT USE START (casper.start is default) 
+* You no longer need ```casper.start``` - Use ```thenOpen``` to start CasperJS with the URL you want to test - NOT USE START (casper.start is default)
 * Manipulate the page in some way
 * Take screenshots
 
@@ -213,6 +213,7 @@ See the [CasperJS documentation](http://casperjs.readthedocs.org/en/latest/modul
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+* 2014-02-23   v0.2.7   Remove bower, add dependencies node_modules, fix warning msgs
 * 2014-02-23   v0.2.2   Added multiple file example to README.md
 * 2014-02-07   v0.2.1   Fixed ResembleJS path issue
 * 2014-01-07   v0.2.0   Merged updates from Larry Davis
