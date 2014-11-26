@@ -213,7 +213,7 @@ See the [CasperJS documentation](http://casperjs.readthedocs.org/en/latest/modul
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-* 2014-02-23   v0.2.7   Remove bower, add dependencies node_modules, fix warning msgs
+* 2014-02-26   v0.2.7   Remove bower, add dependencies node_modules, fix warning msgs
 * 2014-02-23   v0.2.2   Added multiple file example to README.md
 * 2014-02-07   v0.2.1   Fixed ResembleJS path issue
 * 2014-01-07   v0.2.0   Merged updates from Larry Davis
