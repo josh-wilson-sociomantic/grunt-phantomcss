@@ -4,16 +4,16 @@
 
 ## Notice
 
-**This is a fork of the original (presumably discontinued) repository of [grunt-phantomcss](https://github.com/chrisgladd/grunt-phantomcss) and anselmh and  micahgodbolt (https://github.com/micahgodbolt/grunt-phantomcss). Currently this version here is untagged and unreleased on npm. You can install the original with "npm install grunt-phantomcss". However, you can install and use this version:**
+**This is a fork of the original (presumably discontinued). Currently this version here is untagged and unreleased on npm. You can install the original with "npm install grunt-phantomcss". However, you can install and use this version:**
 
 Add this to your `package.json`:
 
-    "grunt-phantomcss": "git://github.com/titansgroup/grunt-phantomcss.git",
+    "grunt-phantomcss": "git://github.com/EmilioAiolfi/grunt-phantomcss.git",
 
 or, alternatively, type this into your command line interface:
 
 ```shell
-npm install --save-dev git://github.com/titansgroup/grunt-phantomcss.git
+npm install --save-dev git://github.com/EmilioAiolfi/grunt-phantomcss.git
 ```
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
