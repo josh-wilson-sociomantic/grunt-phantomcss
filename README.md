@@ -2,18 +2,27 @@
 
 > Automate CSS regression testing with PhantomCSS
 
+## Notice
+
+**This is a fork of the original (presumably discontinued). Currently this version here is untagged and unreleased on npm. You can install the original with "npm install grunt-phantomcss". However, you can install and use this version:**
+
+Add this to your `package.json`:
+
+    "grunt-phantomcss": "git://github.com/EmilioAiolfi/grunt-phantomcss.git",
+
+or, alternatively, type this into your command line interface:
+
+```shell
+npm install --save-dev git://github.com/EmilioAiolfi/grunt-phantomcss.git
+```
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
 
-If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
-
-```shell
-npm install grunt-phantomcss --save-dev
-```
+If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
-```js
+```javascript
 grunt.loadNpmTasks('grunt-phantomcss');
 ```
 
@@ -22,14 +31,16 @@ grunt.loadNpmTasks('grunt-phantomcss');
 ### Overview
 In your project's Gruntfile, add a section named `phantomcss` to the data object passed into `grunt.initConfig()`.
 
-```js
+```javascript
 grunt.initConfig({
   phantomcss: {
     options: {},
     your_target: {
       options: {
         screenshots: 'test/visual/screenshots/',
-        results: 'results/visual/'
+        results: 'results/visual/',
+        viewportSize: [1280, 800],
+        mismatchTolerance: 0.05
       },
       src: [
         'test/visual/**/*.js'
@@ -37,7 +48,16 @@ grunt.initConfig({
     }
   }
 });
+
+
+grunt.registerTask('phantomcsstests', ['phantomcss']);
 ```
+
+
+```shell
+grunt phantomcsstests
+```
+
 
 ### Options
 
@@ -52,26 +72,32 @@ Type: `String|Array`
 
 The test files to run.
 
+#### options.mismatchTolerance
+Type: `Number`
+Default: `0.05`
+
+Toleranz of errors that is allowed in a screenshot (for instance to match anti-aliasing bugs).
+
 #### options.screenshots
-Type: `String`  
+Type: `String`
 Default: `'./screenshots'`
 
 The screenshots directory where test fixtures (comparison screenshots) are stored. Baseline screenshots will be stored here on the first run if they're not present.
 
 #### options.results
-Type: `String`  
+Type: `String`
 Default: `'./results'`
 
 The directory to store source, diff, and failure screenshots after tests.
 
 #### options.viewportSize
-Type: `Array`  
+Type: `Array`
 Default: `[1280, 800]`
 
 The viewport size to test the site in `[width, height]` format. Useful when testing responsive layouts.
 
 #### options.logLevel
-Type: `String`  
+Type: `String`
 Default: `error`
 
 The CasperJS log level. See [CasperJS: Logging](http://casperjs.readthedocs.org/en/latest/logging.html) for details.
@@ -82,7 +108,7 @@ The CasperJS log level. See [CasperJS: Logging](http://casperjs.readthedocs.org/
 #### Basic visual tests
 Run tests in `test/visual/` against comparison screenshots stored in `test/visual/screenshots/`, and put the resulting screenshots in `results/visual/`
 
-```js
+```javascript
 grunt.initConfig({
   phantomcss: {
     options: {
@@ -99,7 +125,7 @@ grunt.initConfig({
 #### Responsive layout testing
 Run tests in `test/visual/` against comparison screenshots for destop and mobile.
 
-```js
+```javascript
 grunt.initConfig({
   phantomcss: {
     desktop: {
@@ -208,12 +234,12 @@ You can also use ```casper.thenOpen``` to load a new url and continue testing
 
 See the [CasperJS documentation](http://casperjs.readthedocs.org/en/latest/modules/casper.html) and the [PhantomCSS documentation](https://github.com/Huddle/PhantomCSS) for more information on using CasperJS and PhantomCSS.
 
-
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-* 2014-02-26   v0.2.7   Remove bower, add dependencies node_modules, fix warning msgs
+* 2014-02-23   v0.2.8   Update dependencies
+* 2014-02-23   v0.2.7   Remove bower, add dependencies node_modules, fix warning msgs
 * 2014-02-23   v0.2.2   Added multiple file example to README.md
 * 2014-02-07   v0.2.1   Fixed ResembleJS path issue
 * 2014-01-07   v0.2.0   Merged updates from Larry Davis

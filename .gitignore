@@ -3,3 +3,13 @@
 /tmp
 /results
 /scratchpad.js
+
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+.idea
+
+# OSX stuff
+.DS_Store

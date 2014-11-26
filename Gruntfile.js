@@ -1,13 +1,16 @@
 /*
  * grunt-phantomcss
- * https://github.com/chrisgladd/grunt-phantomcss
+ * https://github.com/anselmh/grunt-phantomcss
  *
  * Copyright (c) 2013 Chris Gladd
+ * Copyright (c) since 2014 Anselm Hannemann
+ *
  * Licensed under the MIT license.
  */
 
 'use strict';
-module.exports = function(grunt) {
+
+module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
         jshint: {
@@ -34,7 +37,11 @@ module.exports = function(grunt) {
             visualTest: {
                 options: {
                     screenshots: 'fixtures/screenshots/',
-                    results: 'results/'
+                    results: 'results/',
+                    viewportSize: [1280, 800],
+                    mismatchTolerance: 0.05,
+                    waitTimeout: 5000,
+                    logLevel: 'warning' // debug | info | warning | error
                 },
                 src: [
                     'fixtures/coffeemachine_test.js'
@@ -55,11 +62,6 @@ module.exports = function(grunt) {
     require('jit-grunt')(grunt, {
         phantomcss: 'tasks/phantomcss.js'
     });
-
-    // These plugins provide necessary tasks.
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
     // Whenever the "test" task is run, first clean the "tmp" dir,
     // then run this plugin's task(s), then test the result.
